@@ -1,0 +1,13 @@
+[Unit]
+Description=uWSGI instance to serve appapi
+After=network.target
+
+[Service]
+User=user
+Group=www-data
+WorkingDirectory=/home/user/appapi
+Environment="PATH=/home/user/appapi/appapienv/bin"
+ExecStart=/home/user/appapi/appapienv/bin/uwsgi --ini appapi.ini
+
+[Install]
+WantedBy=multi-user.target
